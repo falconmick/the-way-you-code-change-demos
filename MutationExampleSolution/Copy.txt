@@ -1,0 +1,7 @@
+var uppercaseStudent = student with
+{
+    FirstName = student.FirstName.ToUpper(),
+    LastName = student.LastName.ToUpper(),
+};
+
+Console.WriteLine(FormatStudentName(uppercaseStudent));
