@@ -32,7 +32,7 @@ class Program
             new Student("John", "Doe", "Pizza"),
             new Student("Some", "Body", "Roast")
         };
-
+        
         return database.Exists(s
             => s.FirstName == student.FirstName && s.LastName == student.LastName);
     }
