@@ -11,7 +11,8 @@ class Program
 {
     static void Main()
     {
-        // Student who should have access
+        
+        // user has input student who should have access
         Student student = new Student
         {
             FirstName = "John",
@@ -39,8 +40,8 @@ class Program
     {
         var database = new List<Student>
         {
-            new Student { FirstName = "John", LastName = "Doe", FavouriteFood = "Pizza" },
-            new Student { FirstName = "Some", LastName = "Body", FavouriteFood = "Roast" }
+            new() { FirstName = "John", LastName = "Doe", FavouriteFood = "Pizza" },
+            new() { FirstName = "Some", LastName = "Body", FavouriteFood = "Roast" }
         };
 
         return database.Exists(s
@@ -49,18 +50,6 @@ class Program
     }
 
     
-    
-    
-    
-    
-    
-    // We need to output the users name in a bunch of different ways
-    // so we decided to keep our code DRY and extract that logic here
-    static string FormatStudentName(Student student)
-    {
-        return $"Student Name: {student.FirstName} {student.LastName}";
-    }
-
     
     
     
@@ -75,5 +64,14 @@ class Program
         student.LastName = student.LastName.ToUpper();
 
         Console.WriteLine(FormatStudentName(student));
+    }
+    
+    
+    
+    // We need to output the users name in a bunch of different ways
+    // so we decided to keep our code DRY and extract that logic here
+    static string FormatStudentName(Student student)
+    {
+        return $"Student Name: {student.FirstName} {student.LastName}";
     }
 }

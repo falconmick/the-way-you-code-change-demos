@@ -1,13 +1,23 @@
 ﻿using System;
 
-record Student(string FirstName, string LastName, string FavouriteFood);
+record Student
+{
+    public required string FirstName { get; init; }
+    public required string LastName { get; init; }
+    public required string FavouriteFood { get; init; }
+}
 
 class Program
 {
     static void Main()
     {
-        // Student who should have access
-        var student = new Student("John", "Doe", "Pizza");
+        // user has input student who should have access
+        var student = new Student
+        {
+            FirstName = "John",
+            LastName = "Doe",
+            FavouriteFood = "Pizza",
+        };
         
         // we show the user who is attempting to access
         PrintName(student);
@@ -29,8 +39,8 @@ class Program
     {
         var database = new List<Student>
         {
-            new Student("John", "Doe", "Pizza"),
-            new Student("Some", "Body", "Roast")
+            new() { FirstName = "John", LastName = "Doe", FavouriteFood = "Pizza" },
+            new() { FirstName = "Some", LastName = "Body", FavouriteFood = "Roast" }
         };
         
         return database.Exists(s
@@ -59,6 +69,8 @@ class Program
     // for the demo on Tuesday
     static void PrintName(Student student)
     {
+        // student.FirstName = student.FirstName.ToUpper();
+        // student.LastName = student.LastName.ToUpper();
         var uppercaseStudent = student with
         {
             FirstName = student.FirstName.ToUpper(),

@@ -1,7 +1,5 @@
-var uppercaseStudent = student with
-{
-    FirstName = student.FirstName.ToUpper(),
-    LastName = student.LastName.ToUpper(),
-};
+// the wrong way
 
-Console.WriteLine(FormatStudentName(uppercaseStudent));
+
+student.FirstName = student.FirstName.ToUpper();
+student.LastName = student.LastName.ToUpper();
