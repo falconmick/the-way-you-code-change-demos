@@ -1,12 +1,6 @@
 namespace ResultReadFileExample;
 
 
-enum class Result<T, E>
-{
-    Ok(T value),
-    Error(E error)
-}
-
 public class ReadFileException : Exception
 {
     public ReadFileException(string? message)
@@ -57,3 +51,15 @@ public class Tests
         Console.WriteLine(Example.ReadFileAndCount());
     }
 }
+
+/*
+enum class Result<T, E>
+{
+    Ok(T value),
+    Error(E error)
+}
+
+public static Result<string, ReadFileException> ReadFileAndCount() {}
+
+
+*/
